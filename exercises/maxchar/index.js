@@ -7,10 +7,20 @@
 
 function maxChar(str) {
     const chars ={}
+    let max = 0
+    let letter = ''
     for (ch of str) {
-        chars[ch] = !chars[ch] ? chars[ch] = 1 : chars[ch]++
-        //chars[ch] = chars[ch] + 1 || 1  //the same as line above
+        //chars[ch] = !chars[ch] ? 1 : chars[ch]++
+        chars[ch] = chars[ch] + 1 || 1  //the same as line above
     }
+
+    for (const key in chars) {
+        if (chars[key] > max) {
+            max = chars[key]
+            letter = key
+        }
+    }
+    return letter
 }
 
 function maxChar1(str) {
@@ -20,7 +30,7 @@ function maxChar1(str) {
     }
     
     let max = 0
-    let c = ''
+    let c = '' //most frequently used character
     for ([ch,count] of letters.entries()){
         count > max ? (max = count, c= ch) : max
     }
