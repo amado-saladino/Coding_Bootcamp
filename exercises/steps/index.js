@@ -17,6 +17,35 @@
 //       '### '
 //       '####'
 
-function steps(n) {}
+function steps(n) {
+    for (let iteration = 1; iteration <= n; iteration++) {
+        console.log('#'.repeat(iteration) + ' '.repeat(n-iteration))
+    }
+}
 
-module.exports = steps;
+function steps2(n) {
+    for (let rows = 0; rows < n; rows++) {
+        let stairs = ''
+        for (let columns = 0; columns < n; columns++) {
+            stairs+= columns<=rows ? '#' : ' '
+        }
+        console.log(stairs)
+    }
+}
+
+function steps3(n, row=0, stairs='') {
+    if (row === n) return
+
+    if (stairs.length === n){
+        console.log(stairs)
+        return steps3(n,row+1)
+    }
+
+    if (stairs.length <=row) 
+        stairs += '#'
+    else
+        stairs+=' '
+    steps3(n, row, stairs)
+}
+
+module.exports = {steps, steps2, steps3};
