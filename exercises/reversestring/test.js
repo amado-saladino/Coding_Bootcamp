@@ -4,6 +4,7 @@ const reverse2 = require('./index').reverse2
 const reverse3 = require('./index').reverse3
 const reverse4 = require('./index').reverse4
 const reverse5 = require('./index').reverse5
+const reverse6 = require('./index').reverse6
 
 describe('It should work with classic for loop',()=>{
   test('Reverse function exists', () => {
@@ -86,5 +87,19 @@ describe('Reverse with "while" loop',()=>{
   
   test('Reverse reverses a string', () => {
     expect(reverse5('  abcd')).toEqual('dcba  ');
+  });
+})
+
+describe('Reverse with for loop of half string size', ()=>{
+  test('Reverse function exists', () => {
+    expect(reverse6).toBeDefined();
+  });
+  
+  test('Reverse reverses a string', () => {
+    expect(reverse6('abcd')).toEqual('dcba');
+  });
+  
+  test('Reverse reverses a string', () => {
+    expect(reverse6('  abcd')).toEqual('dcba  ');
   });
 })
