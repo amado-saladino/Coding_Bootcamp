@@ -54,7 +54,17 @@ function reverse5(str) {
     return result
 }
 
+function reverse6(str) {
+    const result = Array.from(str)
+    for (let i=0; i < Math.floor(result.length / 2);i++)  {
+      let temp = result[i]
+      result[i] = result[result.length -1 -i]
+      result[result.length -1 -i] = temp
+    }
+    return result.join('')
+}
+
 //reverse4('test me') //for debugging only
 
-module.exports = { reverse, reverse1, reverse2, reverse3, reverse4, reverse5 }
+module.exports = { reverse, reverse1, reverse2, reverse3, reverse4, reverse5, reverse6 }
 //module.exports = reverse  //the original export in the course
