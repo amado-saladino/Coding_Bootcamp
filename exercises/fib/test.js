@@ -3,6 +3,7 @@ const fib1 = require('./index').fib_iter
 const fib2 = require('./index').fib_iter_arr
 const fib3 = require('./index').fibi
 const fib4 = require('./index').fibonacci_v2
+const fib5 = require('./index').fib_iter_xor
 
 describe('Fibonacci using recursive', ()=>{
   test('Fib function is defined', () => {
@@ -52,7 +53,33 @@ describe('Fibonacci [iterative]', ()=>{
   });
   
   test('calculates correct fib value for 15', () => {
-    expect(fib(39)).toEqual(63245986);
+    expect(fib1(39)).toEqual(63245986);
+  });
+})
+
+describe('Fibonacci [iterative - XOR]', ()=>{
+  test('Fib function is defined', () => {
+    expect(typeof fib5).toEqual('function');
+  });
+  
+  test('calculates correct fib value for 1', () => {
+    expect(fib5(1)).toEqual(1);
+  });
+  
+  test('calculates correct fib value for 2', () => {
+    expect(fib5(2)).toEqual(1);
+  });
+  
+  test('calculates correct fib value for 3', () => {
+    expect(fib5(3)).toEqual(2);
+  });
+  
+  test('calculates correct fib value for 4', () => {
+    expect(fib5(4)).toEqual(3);
+  });
+  
+  test('calculates correct fib value for 15', () => {
+    expect(fib5(39)).toEqual(63245986);
   });
 })
 

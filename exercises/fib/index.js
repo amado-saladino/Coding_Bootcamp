@@ -27,6 +27,20 @@ const fib_iter = (n)=> {
     return num1
 }
 
+const fib_iter_xor = (n)=> {
+    num1 = 0
+    num2 = 1
+    i = 0
+    while (i < n) {
+        num1 ^= num2
+        num2 ^= num1
+        num1 ^= num2
+        num2 = num1 + num2
+        i++
+    }
+    return num1
+}
+
 const fib_iter_arr = (n)=> {
     const res = [0, 1]
     for (i=2; i<= n; i++){
@@ -65,4 +79,4 @@ function fibonacci_v2(n, mem) {
    return mem[n] = fibonacci_v2(n - 1, mem) + fibonacci_v2(n - 2, mem)
 }
 
-module.exports = {fib_recur, fib_iter, fib_iter_arr, fibi, fibonacci_v2}
+module.exports = {fib_recur, fib_iter, fib_iter_xor, fib_iter_arr, fibi, fibonacci_v2}
